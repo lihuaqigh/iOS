@@ -1,0 +1,61 @@
+//
+//  PrefixHeader.pch
+//  Noob2017
+//
+//  Created by lihuaqi on 17/2/10.
+//  Copyright © 2017年 lihuaqi. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+#ifdef DEBUG
+#define debugLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define debugLog(...)
+#define debugMethod()
+#endif
+
+#define SizeScale  (HEIGHT>667?1.104:WIDTH==375?1:0.8533)
+// 屏幕高度
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+// 屏幕宽度
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+
+#define RGB(A, B, C) [UIColor colorWithRed:A/255.0 green:B/255.0 blue:C/255.0 alpha:1.0]
+
+
+//项目类
+#import "BaseViewController.h"
+#import "LoginViewController.h"
+
+//工具类
+#import "Constants.h"
+#import "UIImage+Image.h"
+#import "NSObject+Safety.h"
+#import "UIView+Extension.h"
+#import "UIControl+Safety.h"
+#import "UILabel+Frame.h"
+#import "UIColor+HexString.h"
+#import "SVP.h"
+#import "KCKit.h"
+#import "KCNetworkTool.h"
+#import "KCNetWorkSpecial.h"
+#import "KCCommonTool.h"
+#import "SimulateIDFA.h"
+
+//第三方库
+#import "YYModel.h"
+#import "IQKeyboardManager.h"
+#import "MSWeakTimer.h"
+
+
+
+
+
