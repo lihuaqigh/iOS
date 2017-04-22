@@ -25,7 +25,6 @@ static const NSTimeInterval kTimeOutInterval = 8.0;// 请求超时的时间
     AFHTTPSessionManager *manager = [self getRequstManager];
     
     [manager POST:urlStr parameters:params progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         [SVP dismissSVP];
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSDictionary *dic = [KCCommonTool common_jsonTodic:responseStr];
