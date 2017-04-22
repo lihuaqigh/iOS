@@ -41,28 +41,21 @@ static const NSTimeInterval kTimeOutInterval = 8.0;// 请求超时的时间
     }];
 }
 
-
 + (AFHTTPSessionManager *)getRequstManager {
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]) {
         [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"Access-Token"] forHTTPHeaderField:@"access_token"];
     }
-    
     //网络请求返回的数据类型格式
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
     //如果报接受类型不一致请替换一致text/html  或者 text/plain
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
-    
     //请求超时，时间设置
     manager.requestSerializer.timeoutInterval = kTimeOutInterval;
-    
     return manager;
 }
-
 
 /**
  监控网络状态
