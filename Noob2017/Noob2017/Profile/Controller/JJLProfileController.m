@@ -113,6 +113,7 @@
         }
     }
     if (indexPath.section == 2){
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"access_token"];
         [[NSNotificationCenter defaultCenter] postNotificationName:KApplogin object:nil];
     }
     

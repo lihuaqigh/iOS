@@ -47,8 +47,8 @@ static const NSTimeInterval kTimeOutInterval = 8.0;// 请求超时的时间
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Access-Token"]) {
-        [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"Access-Token"] forHTTPHeaderField:@"Access-Token"];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]) {
+        [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"Access-Token"] forHTTPHeaderField:@"access_token"];
     }
     
     //网络请求返回的数据类型格式

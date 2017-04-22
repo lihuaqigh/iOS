@@ -97,6 +97,15 @@
 
 #pragma 登录(手机号，微信，微博)
 -(void)login {
+    if (_userTf.text.length == 0) {
+        [SVP showErrorWithStatus:@"用户名不能为空"];
+        return;
+    }
+    if (_passTf.text.length == 0) {
+        [SVP showErrorWithStatus:@"密码不能为空"];
+        return;
+    }
+    
     NSString *agent_idfa = [NSString stringWithFormat:@"App-iOS-%@",[SimulateIDFA createSimulateIDFA]];
     [KCNetWorkSpecial loginRequest:@"auth" params:
                                          @{
