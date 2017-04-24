@@ -38,6 +38,7 @@
     
     if ([self isVersionUpdated]) {//首次登陆
         //引导页
+        self.window.rootViewController = nav;
     }else {
         NSString *access_token  = [[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"];
         if (!access_token || access_token == (id)kCFNull) {//未登录状态

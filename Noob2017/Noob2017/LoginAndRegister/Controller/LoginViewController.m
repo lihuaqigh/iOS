@@ -105,17 +105,17 @@
         [SVP showErrorWithStatus:@"密码不能为空"];
         return;
     }
+    [self.view endEditing:YES];
     
     NSString *agent_idfa = [NSString stringWithFormat:@"App-iOS-%@",[SimulateIDFA createSimulateIDFA]];
     [KCNetWorkSpecial loginRequest:@"auth" params:
-                                         @{
-                                           @"action":@"login",
-                                           @"params":@{@"user_name":_userTf.text,
-                                                       @"verify_code":@"",
-                                                       @"password":_passTf.text,
-                                                       @"agent_idfa":agent_idfa
-                                                       }
-                                           } success:^(id obj) {
+                                             @{
+                                               @"action":@"login",
+                                               @"params":@{@"user_name":_userTf.text,
+                                                           @"password":_passTf.text,
+                                                           @"agent_idfa":agent_idfa
+                                                           }
+                                               } success:^(id obj) {
                    
                    if ([obj[@"code"] intValue] == 200) {
                        [self loginSuccess];
@@ -139,6 +139,7 @@
 #pragma 注册
 -(void)regist {
     A_RegistViewController *vc =[[A_RegistViewController alloc]init];
+    vc.isHideLeftPop = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

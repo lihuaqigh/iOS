@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface B_ForgetViewController : BaseViewController
-
+@property (nonatomic, copy) NSString *user_name;
+@property (nonatomic, copy) NSString *verify_code;
 @end

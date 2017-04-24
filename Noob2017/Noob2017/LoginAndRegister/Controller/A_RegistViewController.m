@@ -11,11 +11,10 @@
 
 @interface A_RegistViewController ()
 @property (nonatomic, strong) UITextField *userTf;
-@property (nonatomic, strong) UITextField *passTf;
+@property (nonatomic, strong) UITextField *verifyTf;
 @property (nonatomic, strong) UIButton *codenBtn;
 @property (nonatomic, assign) NSInteger cdTime;//倒计时
 @property (nonatomic, strong) MSWeakTimer *countdownTimer;//计时器
-@property (strong, nonatomic) dispatch_queue_t privateQueue;
 @end
 
 @implementation A_RegistViewController
@@ -37,10 +36,13 @@
     
     [self createUI];
 }
+
 -(void)applicationBecomeActive {
     //此处有个问题：1后台怎么刷新UI，或进入前台前一刻刷新UI也可以
 }
+
 -(void)applicationEnterBackground {
+    //程序段时间内可以在后台继续运行
     [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
 }
 
@@ -80,11 +82,11 @@
     UIImageView *passIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"lock"];
     [passBg addSubview:passIv];
     
-    self.passTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, WIDTH-50*SizeScale-50-10, 44*SizeScale)];
-    _passTf.placeholder = @"请输入验证码";
-    _passTf.textColor = [UIColor colorFromHexString:k4c4c4c];
-    _passTf.font = [UIFont fontWithName:K_CHANGE_TEXT_FONT size:14*SizeScale];
-    [passBg addSubview:_passTf];
+    self.verifyTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, WIDTH-50*SizeScale-50-10, 44*SizeScale)];
+    _verifyTf.placeholder = @"请输入验证码";
+    _verifyTf.textColor = [UIColor colorFromHexString:k4c4c4c];
+    _verifyTf.font = [UIFont fontWithName:K_CHANGE_TEXT_FONT size:14*SizeScale];
+    [passBg addSubview:_verifyTf];
 
     UIButton *loginBtn = [KCKit createBtnWithFrame:CGRectMake(CGRectGetMinX(passBg.frame), CGRectGetMaxY(passBg.frame)+25*SizeScale, CGRectGetWidth(passBg.frame), CGRectGetHeight(passBg.frame)) Text:@"下一步" TextColor:Kffffff TextFontSize:16*SizeScale bgColor:K2088e2 Target:self method:@selector(nextB)];
     loginBtn.layer.cornerRadius = 5.0;
@@ -106,11 +108,10 @@
                                                            @"verify_type":@(2)
                                                            }
                                                }success:^(id obj) {
-                           NSDictionary *dic = [KCCommonTool common_jsonTodic:obj];
-                           if ([dic[@"code"] intValue] == 200) {
+                           if ([obj[@"code"] intValue] == 200) {
                                [SVP showSuccessWithStatus:@"短信验证已经发送成功"];
                            }else {
-                               [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",dic[@"message"]]];
+                               [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",obj[@"message"]]];
                            }
     }];
     self.cdTime = 60;
@@ -131,23 +132,23 @@
 
 //下一步
 -(void)nextB {
-    [KCNetworkTool postRequest:@"verify" params:@{@"action":@"verify",
-                                            @"params":@{@"user_name":_userTf.text,
-                                                        @"verify_type":@(2),
-                                                        @"verify_code":_passTf.text
-                                                        }
+    [KCNetworkTool postRequest:@"verify" params:
+                                            @{
+                                              @"action":@"verify",
+                                              @"params":@{@"user_name":_userTf.text,
+                                                          @"verify_type":@(2),
+                                                          @"verify_code":_verifyTf.text
+                                                          }
                                             } success:^(id obj) {
             if ([obj[@"code"] intValue] == 200) {
                 B_RegistViewController *vc = [[B_RegistViewController alloc]init];
-                vc.verify_code = _passTf.text;
+                vc.user_name = _userTf.text;
+                vc.verify_code = _verifyTf.text;
                 [self.navigationController pushViewController:vc animated:YES];
             }else {
                 [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",obj[@"message"]]];
             }
     }];
-    B_RegistViewController *vc = [[B_RegistViewController alloc]init];
-    vc.verify_code = _passTf.text;
-    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -160,15 +161,5 @@
     
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

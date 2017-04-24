@@ -49,6 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navTitle = @"我的";
+    self.isHideLeftPop = YES;
     [self initTableview];
     
 }
@@ -104,7 +105,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             NGShoppingCartViewController *vc = [[NGShoppingCartViewController alloc]init];
@@ -113,11 +113,16 @@
         }
     }
     if (indexPath.section == 2){
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"access_token"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:KApplogin object:nil];
+        [KCNetworkTool postRequest:@"auth" params:@{@"action":@"logout"} success:^(id obj) {
+           if ([obj[@"code"] intValue] == 200) {
+               [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"access_token"];
+               [[NSNotificationCenter defaultCenter] postNotificationName:KApplogin object:nil];
+           }else {
+               [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",obj[@"message"]]];
+           }
+            
+        }];
     }
-    
-
 }
 
 @end

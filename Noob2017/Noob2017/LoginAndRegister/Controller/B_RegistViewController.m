@@ -43,7 +43,6 @@
     
     self.userTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];
     _userTf.placeholder = @"请输入密码(6-20位)";
-    _userTf.keyboardType = UIKeyboardTypeNumberPad;
     _userTf.secureTextEntry = YES;
     _userTf.textColor = [UIColor colorFromHexString:k4c4c4c];
     _userTf.font = [UIFont fontWithName:K_CHANGE_TEXT_FONT size:14*SizeScale];
@@ -69,21 +68,22 @@
     loginBtn.layer.cornerRadius = 5.0;
     [self.view addSubview:loginBtn];
 }
-#pragma 完成注册
+#pragma 注册
 -(void)regist {
     if ([_passTf.text isEqualToString:_userTf.text]) {
-        [KCNetworkTool postRequest:@"auth" params:@{@"action":@"register",
-                                                    @"params":@{@"user_name":_user_name,
-                                                                @"password":_passTf.text,
-                                                                @"verify_code":_verify_code
-                                                                }
-                                                    } success:^(id obj) {
+        [KCNetworkTool postRequest:@"auth" params:
+                                                @{
+                                                  @"action":@"register",
+                                                  @"params":@{@"user_name":_user_name,
+                                                              @"password":_passTf.text,
+                                                              @"verify_code":_verify_code
+                                                              }
+                                                  } success:^(id obj) {
                                                         if ([obj[@"code"] intValue] == 200) {
                                                             [self successRegist];
                                                         }else {
                                                             [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",obj[@"message"]]];
                                                         }
-                                                        
          }];
     }else {
         [SVP showErrorWithStatus:@"两次设置的密码不一致"];
@@ -92,29 +92,24 @@
 }
 
 -(void)successRegist {
-    [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+    [SVProgressHUD showSuccessWithStatus:@"注册成功,自动登录中~"];
     [SVProgressHUD dismissWithDelay:1.0 completion:^{
         NSString *agent_idfa = [NSString stringWithFormat:@"App-iOS-%@",[SimulateIDFA createSimulateIDFA]];
-        [KCNetworkTool postRequest:@"auth" params:
+        [KCNetWorkSpecial loginRequest:@"auth" params:
                                                  @{
                                                    @"action":@"login",
                                                    @"params":@{@"user_name":_user_name,
-                                                               @"verify_code":@"",
                                                                @"password":_passTf.text,
                                                                @"agent_idfa":agent_idfa
                                                                }
                                                    } success:^(id obj) {
-                                                       if ([obj[@"code"] intValue] == 200) {
-                                                           [self loginSuccess];
-                                                       }else {
-                                                           [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",obj[@"message"]]];
-                                                       }
+               if ([obj[@"code"] intValue] == 200) {
+                   [[NSNotificationCenter defaultCenter] postNotificationName:KApploginSuccess object:nil];
+               }else {
+                   [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",obj[@"message"]]];
+               }
         }];
     }];
-}
-
--(void)loginSuccess {
-    [[NSNotificationCenter defaultCenter] postNotificationName:KApploginSuccess object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -29,8 +29,9 @@ static const NSTimeInterval kTimeOutInterval = 8.0;// 请求超时的时间
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSDictionary *dic = [KCCommonTool common_jsonTodic:responseStr];
         if ([dic[@"code"] intValue] == 200) {
-            [[NSUserDefaults standardUserDefaults] setObject:dic[@"access_token"] forKey:@"access_token"];
-            [[NSUserDefaults standardUserDefaults] setObject:dic[@"Mobile_number"] forKey:@"Mobile_number"];
+            NSDictionary *result = dic[@"result"];
+            [[NSUserDefaults standardUserDefaults] setObject:result[@"access_token"] forKey:@"access_token"];
+            [[NSUserDefaults standardUserDefaults] setObject:result[@"Mobile_number"] forKey:@"Mobile_number"];
         }
         successHandler(dic);
         
@@ -44,8 +45,9 @@ static const NSTimeInterval kTimeOutInterval = 8.0;// 请求超时的时间
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]) {
-        [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"Access-Token"] forHTTPHeaderField:@"access_token"];
+    NSString *access_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"];
+    if (access_token.length>0) {
+        [manager.requestSerializer setValue:access_token forHTTPHeaderField:@"Access_Token"];
     }
     //网络请求返回的数据类型格式
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];

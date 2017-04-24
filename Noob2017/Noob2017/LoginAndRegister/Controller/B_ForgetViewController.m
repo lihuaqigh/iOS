@@ -7,7 +7,7 @@
 //
 
 #import "B_ForgetViewController.h"
-
+#import "SVProgressHUD.h"
 @interface B_ForgetViewController ()
 @property (nonatomic, strong) UITextField *passTf;
 @property (nonatomic, strong) UITextField *passAgainTf;
@@ -39,7 +39,6 @@
     self.passTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(passIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];
     _passTf.placeholder = @"请输入新密码(6-20位)";
     _passTf.secureTextEntry = YES;
-    _passTf.keyboardType = UIKeyboardTypeNumberPad;
     _passTf.textColor = [UIColor colorFromHexString:k4c4c4c];
     _passTf.font = [UIFont fontWithName:K_CHANGE_TEXT_FONT size:14*SizeScale];
     [passBg addSubview:_passTf];
@@ -55,18 +54,60 @@
     
     self.passAgainTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(passAgainIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];
     _passAgainTf.placeholder = @"请再次确认密码";
-    _passAgainTf.keyboardType = UIKeyboardTypeNumberPad;
+    _passAgainTf.secureTextEntry = YES;
     _passAgainTf.textColor = [UIColor colorFromHexString:k4c4c4c];
     _passAgainTf.font = [UIFont fontWithName:K_CHANGE_TEXT_FONT size:14*SizeScale];
     [passAgainBg addSubview:_passAgainTf];
     
-    UIButton *loginBtn = [KCKit createBtnWithFrame:CGRectMake(CGRectGetMinX(passBg.frame), CGRectGetMaxY(passAgainBg.frame)+25*SizeScale, CGRectGetWidth(passBg.frame), CGRectGetHeight(passBg.frame)) Text:@"完    成" TextColor:Kffffff TextFontSize:16*SizeScale bgColor:K2088e2 Target:self method:@selector(success)];
-    loginBtn.layer.cornerRadius = 5.0;
-    [self.view addSubview:loginBtn];
+    UIButton *changePwdBtn = [KCKit createBtnWithFrame:CGRectMake(CGRectGetMinX(passBg.frame), CGRectGetMaxY(passAgainBg.frame)+25*SizeScale, CGRectGetWidth(passBg.frame), CGRectGetHeight(passBg.frame)) Text:@"完    成" TextColor:Kffffff TextFontSize:16*SizeScale bgColor:K2088e2 Target:self method:@selector(changePwd)];
+    changePwdBtn.layer.cornerRadius = 5.0;
+    [self.view addSubview:changePwdBtn];
 }
-#pragma 完成注册
--(void)success {
+#pragma 修改密码
+-(void)changePwd {
+    if ([_passTf.text isEqualToString:_passAgainTf.text]) {
+        NSString *url = [NSString stringWithFormat:@"user/%@",_user_name];
+        NSString *agent_idfa = [NSString stringWithFormat:@"App-iOS-%@",[SimulateIDFA createSimulateIDFA]];
+        [KCNetworkTool postRequest:url params:
+                                                         @{
+                                                           @"action":@"change_password",
+                                                           @"params":@{@"verify_code":_verify_code,
+                                                                       @"new_password":_passTf.text,
+                                                                       @"agent_idfa":agent_idfa,
+                                                                       @"verify_code":@(3)
+                                                                       }
+                                                           }success:^(id obj) {
+                                                               if ([obj[@"code"] intValue] == 200) {
+                                                                   [self successChange];
+                                                               }else {
+                                                                   [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",obj[@"message"]]];
+                                                               }
+           }];
+    }else {
+        [SVP showErrorWithStatus:@"两次设置的密码不一致"];
+    }
     
+}
+
+-(void)successChange {
+    [SVProgressHUD showSuccessWithStatus:@"修改成功,自动登录中~"];
+    [SVProgressHUD dismissWithDelay:1.0 completion:^{
+        NSString *agent_idfa = [NSString stringWithFormat:@"App-iOS-%@",[SimulateIDFA createSimulateIDFA]];
+        [KCNetWorkSpecial loginRequest:@"auth" params:
+                                                 @{
+                                                   @"action":@"login",
+                                                   @"params":@{@"user_name":_user_name,
+                                                               @"password":_passTf.text,
+                                                               @"agent_idfa":agent_idfa
+                                                               }
+                                                   } success:^(id obj) {
+               if ([obj[@"code"] intValue] == 200) {
+                   [[NSNotificationCenter defaultCenter] postNotificationName:KApploginSuccess object:nil];
+               }else {
+                   [SVP showErrorWithStatus:[NSString stringWithFormat:@"%@",obj[@"message"]]];
+               }
+           }];
+    }];
 }
 
 

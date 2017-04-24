@@ -9,6 +9,6 @@
 #import "BaseViewController.h"
 
 @interface B_RegistViewController : BaseViewController
-@property (nonatomic, copy) NSString *user_name;//隐式
-@property (nonatomic, copy) NSString *verify_code;//隐式
+@property (nonatomic, copy) NSString *user_name;
+@property (nonatomic, copy) NSString *verify_code;
 @end

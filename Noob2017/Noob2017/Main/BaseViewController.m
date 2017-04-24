@@ -26,9 +26,20 @@
     [super viewDidLoad];
     [self topbar];
 }
-- (void)setNavTitle:(NSString *)navTitle{
+- (void)setNavTitle:(NSString *)navTitle {
     if (navTitle.length > 0) {
         _topbarLb.text = navTitle;
+    }
+}
+-(void)setIsHideLeftPop:(BOOL)isHideLeftPop {
+    _isHideLeftPop = isHideLeftPop;
+    if (!_isHideLeftPop) {
+        _leftButton = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"topbar-back-btn"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] style: UIBarButtonItemStylePlain target:self action:@selector(leftBtnPop)];
+        _space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        _space.width = 0;
+        self.navigationItem.leftBarButtonItems = @[_space, _leftButton];
+    }else{
+        self.navigationItem.leftBarButtonItems = nil;
     }
 }
 
@@ -40,15 +51,7 @@
     _topbarLb.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = _topbarLb;
     
-    if (!_isHideLeftPop) {
-        _leftButton = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"topbar-back-btn"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] style: UIBarButtonItemStylePlain target:self action:@selector(leftBtnPop)];
-        _space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-        _space.width = 0;
-    }else{
-        _leftButton = nil;
-        _space = nil;
-    }
-    self.navigationItem.leftBarButtonItems = @[_space, _leftButton];
+    self.isHideLeftPop = NO;
 }
 #pragma mark 返回上一级
 - (void)leftBtnPop{
