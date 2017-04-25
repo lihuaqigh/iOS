@@ -22,7 +22,6 @@
     [super viewWillAppear:animated];
     self.navTitle = @"注册(1/2)";
     self.view.backgroundColor = [UIColor whiteColor];
-    
 }
 
 - (void)viewDidLoad {

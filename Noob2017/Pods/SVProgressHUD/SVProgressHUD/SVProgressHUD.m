@@ -1188,13 +1188,15 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
         _controlView.backgroundColor = [UIColor clearColor];
         [_controlView addTarget:self action:@selector(controlViewDidReceiveTouchEvent:forEvent:) forControlEvents:UIControlEventTouchDown];
     }
-    
+    //_controlView.backgroundColor = [UIColor redColor];
     // Update frames
 #if !defined(SV_APP_EXTENSIONS)
     CGRect windowBounds = [[[UIApplication sharedApplication] delegate] window].bounds;
-    _controlView.frame = windowBounds;
+    //_controlView.frame = windowBounds;
+    _controlView.frame = CGRectMake(0, 64, windowBounds.size.width, windowBounds.size.height-64);
 #else
-    _controlView.frame = [UIScreen mainScreen].bounds;
+    //_controlView.frame = [UIScreen mainScreen].bounds;
+    _controlView.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-64);
 #endif
     
     return _controlView;
