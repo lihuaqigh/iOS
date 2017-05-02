@@ -56,12 +56,11 @@
 		3E8A1E771EA897D200465101 /* SimulateIDFA.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A1E761EA897D200465101 /* SimulateIDFA.m */; };
 		3E8A1E791EA8989500465101 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8A1E781EA8989500465101 /* CoreTelephony.framework */; };
 		3EF4EDFA1E94F4F800A93B7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */; };
-		3EF4EDFB1E94F4F800A93B7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF51E94F4F800A93B7F /* Assets.xcassets */; };
 		3EF4EDFC1E94F4F800A93B7F /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF61E94F4F800A93B7F /* image.png */; };
 		3EF4EDFE1E94F4F800A93B7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF81E94F4F800A93B7F /* main.m */; };
 		3EF4EDFF1E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF91E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF */; };
-		3EF4EE031E94F5A200A93B7F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4EE021E94F5A200A93B7F /* Info.plist */; };
 		3EF4EE061E94F5D800A93B7F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EE051E94F5D800A93B7F /* BaseViewController.m */; };
+		3EF4F1CA1EB85C3000D15792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4F1C91EB85C3000D15792 /* Assets.xcassets */; };
 		74E73C42375F763F0C467500 /* libPods-Noob2017.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DE1F1337E1C6D65D568289 /* libPods-Noob2017.a */; };
 /* End PBXBuildFile section */
 
@@ -183,13 +182,13 @@
 		3E8A1E781EA8989500465101 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3EF4EDF31E94F4F800A93B7F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3EF4EDF51E94F4F800A93B7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EF4EDF61E94F4F800A93B7F /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		3EF4EDF81E94F4F800A93B7F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3EF4EDF91E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "方正兰亭纤黑_GBK.TTF"; sourceTree = "<group>"; };
 		3EF4EE021E94F5A200A93B7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EF4EE041E94F5D800A93B7F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3EF4EE051E94F5D800A93B7F /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		3EF4F1C91EB85C3000D15792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77038B25441C457F9AB32F62 /* Pods-Noob2017.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Noob2017.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Noob2017/Pods-Noob2017.debug.xcconfig"; sourceTree = "<group>"; };
 		F75750D7BD65081A9B1B03FA /* Pods-Noob2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Noob2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-Noob2017/Pods-Noob2017.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -591,9 +590,9 @@
 			children = (
 				3EF4EDF31E94F4F800A93B7F /* AppDelegate.h */,
 				3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */,
-				3EF4EDF51E94F4F800A93B7F /* Assets.xcassets */,
-				3EF4EDF61E94F4F800A93B7F /* image.png */,
 				3EF4EDF81E94F4F800A93B7F /* main.m */,
+				3EF4F1C91EB85C3000D15792 /* Assets.xcassets */,
+				3EF4EDF61E94F4F800A93B7F /* image.png */,
 				3EF4EDF91E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF */,
 			);
 			path = System;
@@ -673,7 +672,7 @@
 		3E459DCE1E4D9BDC00D7C9AD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = lihuaqi;
 				TargetAttributes = {
 					3E459DD51E4D9BDC00D7C9AD = {
@@ -724,9 +723,8 @@
 				3E459DE91E4D9BDC00D7C9AD /* LaunchScreen.storyboard in Resources */,
 				3E510EC71E9F842900026311 /* Info.plist in Resources */,
 				3E459DE41E4D9BDC00D7C9AD /* Main.storyboard in Resources */,
+				3EF4F1CA1EB85C3000D15792 /* Assets.xcassets in Resources */,
 				3EF4EDFC1E94F4F800A93B7F /* image.png in Resources */,
-				3EF4EDFB1E94F4F800A93B7F /* Assets.xcassets in Resources */,
-				3EF4EE031E94F5A200A93B7F /* Info.plist in Resources */,
 				3E2FD3881E95EF95006C192E /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -916,6 +914,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -964,6 +963,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
