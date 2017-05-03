@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "JJLTabBarController.h"
 #import "JJLNavigationController.h"
+#import "AppDelegate+Services.h"
 @interface AppDelegate ()
 @end
 
@@ -22,13 +23,18 @@
     [self delegateConfig];
     [self launchPrepare];
     [self KeyboardManager];
+    [self pushServices];
     return YES;
 
 }
+
+//AppDelegate自身的代理
 -(void)delegateConfig{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:KApploginSuccess object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(login) name:KApplogin object:nil];
 }
+
+//运行判断
 -(void)launchPrepare {
     JJLTabBarController *tabVC = [[JJLTabBarController alloc] init];
     self.window.rootViewController = tabVC;
@@ -64,17 +70,17 @@
     return NO;
 }
 
--(void)KeyboardManager {
-    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
-    manager.enable = YES;//控制整个功能是否启用。
-    manager.shouldResignOnTouchOutside = YES;//控制点击背景是否收起键盘
-    manager.shouldToolbarUsesTextFieldTintColor = NO;//控制键盘上的工具条文字颜色是否用户自定义
-    manager.enableAutoToolbar = NO;//控制是否显示键盘上的工具条
-}
 #pragma 登陆成功进首页
 -(void)loginSuccess {
     JJLTabBarController *tabVC = [[JJLTabBarController alloc] init];
-    self.window.rootViewController = tabVC;
+    KCWeakSelf(weakSelf);
+    [UIView transitionFromView:weakSelf.window.rootViewController.view
+                        toView:tabVC.view
+                        duration:1
+                        options:UIViewAnimationOptionTransitionCrossDissolve
+                        completion:^(BOOL finished) {
+                            weakSelf.window.rootViewController = tabVC;
+    }];
 }
 
 #pragma 进登陆页

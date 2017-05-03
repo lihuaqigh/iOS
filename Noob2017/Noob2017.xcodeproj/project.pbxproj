@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E293D701EB9DB560027AE4F /* AppDelegate+Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E293D6F1EB9DB560027AE4F /* AppDelegate+Services.m */; };
 		3E2FD3541E95E095006C192E /* SVP.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD3531E95E095006C192E /* SVP.m */; };
 		3E2FD37A1E95EF95006C192E /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD3581E95EF95006C192E /* IQNSArray+Sort.m */; };
 		3E2FD37B1E95EF95006C192E /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD35A1E95EF95006C192E /* IQUIScrollView+Additions.m */; };
@@ -83,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		28DE1F1337E1C6D65D568289 /* libPods-Noob2017.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Noob2017.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E293D6E1EB9DB560027AE4F /* AppDelegate+Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Services.h"; sourceTree = "<group>"; };
+		3E293D6F1EB9DB560027AE4F /* AppDelegate+Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Services.m"; sourceTree = "<group>"; };
 		3E2FD3521E95E095006C192E /* SVP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVP.h; sourceTree = "<group>"; };
 		3E2FD3531E95E095006C192E /* SVP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVP.m; sourceTree = "<group>"; };
 		3E2FD3571E95EF95006C192E /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
@@ -590,6 +593,8 @@
 			children = (
 				3EF4EDF31E94F4F800A93B7F /* AppDelegate.h */,
 				3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */,
+				3E293D6E1EB9DB560027AE4F /* AppDelegate+Services.h */,
+				3E293D6F1EB9DB560027AE4F /* AppDelegate+Services.m */,
 				3EF4EDF81E94F4F800A93B7F /* main.m */,
 				3EF4F1C91EB85C3000D15792 /* Assets.xcassets */,
 				3EF4EDF61E94F4F800A93B7F /* image.png */,
@@ -811,6 +816,7 @@
 				3E3D59191E5184A9001B405D /* UIView+Extension.m in Sources */,
 				3E6F3C491E543043003E0885 /* UIImage+Image.m in Sources */,
 				3E2FD3861E95EF95006C192E /* IQToolbar.m in Sources */,
+				3E293D701EB9DB560027AE4F /* AppDelegate+Services.m in Sources */,
 				3E2FD37B1E95EF95006C192E /* IQUIScrollView+Additions.m in Sources */,
 				3E544B931EA60BA00048231E /* KCNetworkTool.m in Sources */,
 				3E74959D1E6E8856007A6C34 /* UILabel+Frame.m in Sources */,
