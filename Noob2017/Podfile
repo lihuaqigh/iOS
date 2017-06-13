@@ -3,12 +3,10 @@ platform :ios, ‘8.0’
 target 'Noob2017' do
 
 pod 'MBProgressHUD'
-
 pod 'SVProgressHUD'
-
 pod 'AFNetworking', '~> 3.0'
-
 pod 'YYModel'
-
 pod 'GTSDK', '~> 1.6.2.0'
+pod 'WechatOpenSDK', '~> 1.7.7'
+
 end

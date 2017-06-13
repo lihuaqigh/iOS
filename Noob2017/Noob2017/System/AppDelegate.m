@@ -22,8 +22,7 @@
     [self.window makeKeyAndVisible];
     [self delegateConfig];
     [self launchPrepare];
-    [self KeyboardManager];
-    [self pushServices];
+    [self servicesApplication:application didFinishLaunchingWithOptions:launchOptions];
     return YES;
 
 }

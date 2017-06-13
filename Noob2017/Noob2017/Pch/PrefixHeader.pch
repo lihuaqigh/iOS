@@ -54,6 +54,8 @@
 #import "KCNetWorkSpecial.h"
 #import "KCCommonTool.h"
 #import "SimulateIDFA.h"
+#import "KCShareView.h"
+#import "UIButton+ImageTitleSpacing.h"
 
 //第三方库
 #import "YYModel.h"

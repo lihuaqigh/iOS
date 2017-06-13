@@ -420,6 +420,11 @@ including Freepik Icons. Please consult their
 respective headers for the terms of their individual licenses.
 
 
+## WechatOpenSDK
+
+Copyright 2017 tencent.com. All rights reserved.
+
+
 ## YYModel
 
 The MIT License (MIT)

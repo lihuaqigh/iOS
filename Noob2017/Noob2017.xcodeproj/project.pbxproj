@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E110BC01EEFFC3E00EF05BD /* KCShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110BBD1EEFFC3E00EF05BD /* KCShareView.m */; };
+		3E110BC11EEFFC3E00EF05BD /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110BBF1EEFFC3E00EF05BD /* WXApiManager.m */; };
+		3E110BC41EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110BC31EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.m */; };
 		3E293D701EB9DB560027AE4F /* AppDelegate+Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E293D6F1EB9DB560027AE4F /* AppDelegate+Services.m */; };
 		3E2FD3541E95E095006C192E /* SVP.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD3531E95E095006C192E /* SVP.m */; };
 		3E2FD37A1E95EF95006C192E /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD3581E95EF95006C192E /* IQNSArray+Sort.m */; };
@@ -84,6 +87,12 @@
 
 /* Begin PBXFileReference section */
 		28DE1F1337E1C6D65D568289 /* libPods-Noob2017.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Noob2017.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E110BBC1EEFFC3E00EF05BD /* KCShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCShareView.h; sourceTree = "<group>"; };
+		3E110BBD1EEFFC3E00EF05BD /* KCShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCShareView.m; sourceTree = "<group>"; };
+		3E110BBE1EEFFC3E00EF05BD /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
+		3E110BBF1EEFFC3E00EF05BD /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
+		3E110BC21EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleSpacing.h"; sourceTree = "<group>"; };
+		3E110BC31EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpacing.m"; sourceTree = "<group>"; };
 		3E293D6E1EB9DB560027AE4F /* AppDelegate+Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Services.h"; sourceTree = "<group>"; };
 		3E293D6F1EB9DB560027AE4F /* AppDelegate+Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Services.m"; sourceTree = "<group>"; };
 		3E2FD3521E95E095006C192E /* SVP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVP.h; sourceTree = "<group>"; };
@@ -230,6 +239,17 @@
 				F75750D7BD65081A9B1B03FA /* Pods-Noob2017.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3E110BBB1EEFFC3E00EF05BD /* WXApiManager */ = {
+			isa = PBXGroup;
+			children = (
+				3E110BBC1EEFFC3E00EF05BD /* KCShareView.h */,
+				3E110BBD1EEFFC3E00EF05BD /* KCShareView.m */,
+				3E110BBE1EEFFC3E00EF05BD /* WXApiManager.h */,
+				3E110BBF1EEFFC3E00EF05BD /* WXApiManager.m */,
+			);
+			path = WXApiManager;
 			sourceTree = "<group>";
 		};
 		3E2FD3551E95EF95006C192E /* IQKeyboardManager */ = {
@@ -490,6 +510,7 @@
 		3E459E0D1E4D9BFE00D7C9AD /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3E110BBB1EEFFC3E00EF05BD /* WXApiManager */,
 				3E544B901EA60BA00048231E /* KCNetwork */,
 				3E2FD3891E95FF7C006C192E /* KCKit.h */,
 				3E2FD38A1E95FF7C006C192E /* KCKit.m */,
@@ -509,6 +530,8 @@
 				3E2FD3531E95E095006C192E /* SVP.m */,
 				3E34FA521E9E09A8009B844B /* KCCommonTool.h */,
 				3E34FA531E9E09A8009B844B /* KCCommonTool.m */,
+				3E110BC21EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.h */,
+				3E110BC31EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -682,7 +705,7 @@
 				TargetAttributes = {
 					3E459DD51E4D9BDC00D7C9AD = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = T465W56L2K;
+						DevelopmentTeam = WYR42E4EX2;
 						ProvisioningStyle = Automatic;
 					};
 					3E459DEE1E4D9BDC00D7C9AD = {
@@ -830,6 +853,7 @@
 				3E3D3BDA1E6827B3006667A1 /* NGShoppingCarCell.m in Sources */,
 				3E2FD37A1E95EF95006C192E /* IQNSArray+Sort.m in Sources */,
 				3E2FD38E1E962934006C192E /* A_RegistViewController.m in Sources */,
+				3E110BC11EEFFC3E00EF05BD /* WXApiManager.m in Sources */,
 				3E2FD3801E95EF95006C192E /* IQKeyboardManager.m in Sources */,
 				3E2FD37C1E95EF95006C192E /* IQUITextFieldView+Additions.m in Sources */,
 				3EF4EDFE1E94F4F800A93B7F /* main.m in Sources */,
@@ -840,7 +864,9 @@
 				3E2FD37F1E95EF95006C192E /* IQUIWindow+Hierarchy.m in Sources */,
 				3E2FD3971E9649D7006C192E /* B_ForgetViewController.m in Sources */,
 				3E3D3BD71E680A67006667A1 /* NGShoppingCartViewController.m in Sources */,
+				3E110BC41EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.m in Sources */,
 				3E2FD3851E95EF95006C192E /* IQTitleBarButtonItem.m in Sources */,
+				3E110BC01EEFFC3E00EF05BD /* KCShareView.m in Sources */,
 				3E7495A01E6E88F7007A6C34 /* UIColor+HexString.m in Sources */,
 				3E510EC81E9F842900026311 /* MSWeakTimer.m in Sources */,
 				3E459E101E4DA42600D7C9AD /* Constants.m in Sources */,
@@ -1001,7 +1027,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = T465W56L2K;
+				DEVELOPMENT_TEAM = WYR42E4EX2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;
@@ -1044,7 +1070,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = T465W56L2K;
+				DEVELOPMENT_TEAM = WYR42E4EX2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;

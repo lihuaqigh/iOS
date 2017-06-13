@@ -11,9 +11,6 @@
 #import <UserNotifications/UserNotifications.h>
 
 @interface AppDelegate (Services) <GeTuiSdkDelegate>
-//推送
--(void)pushServices;
-
-//键盘遮挡
--(void)KeyboardManager;
+- (void)servicesApplication:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 @end

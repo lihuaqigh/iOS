@@ -126,7 +126,8 @@
     }];
 }
 -(void)WXlogin {
-    [SVP showWithStatus:@"微信登录"];
+    [KCShareView show];
+    //[SVP showWithStatus:@"微信登录"];
 }
 
 -(void)WBlogin {

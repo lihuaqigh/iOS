@@ -7,34 +7,58 @@
 //
 
 #import "AppDelegate+Services.h"
+#import "WXApi.h"
+#import "WXApiManager.h"
 //测试的
-#define kGtAppId           @"l6uQ8fSNLC8AMpz7lrgbC3"
-#define kGtAppKey          @"OTUWIpaM9w6zHRxkQxwGL9"
-#define kGtAppSecret       @"NLpL2HS0ru5HmdFN2NSqB7"
+static NSString* const kGtAppId = @"l6uQ8fSNLC8AMpz7lrgbC3";
+static NSString* const kGtAppKey = @"OTUWIpaM9w6zHRxkQxwGL9";
+static NSString* const kGtAppSecret = @"NLpL2HS0ru5HmdFN2NSqB7";
+static NSString* const wxAppId = @"wxd73071baf25ec8df";
 
 @implementation AppDelegate (Services) 
--(void)pushServices {
-    KCWeakSelf(weakSelf);
-    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:weakSelf];
+- (void)servicesApplication:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self KeyboardManager];
+    //[self pushServices];
+    [self wxServices];
 }
 
-/** 远程通知注册成功委托 */
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"\n>>>[DeviceToken Success]:%@\n\n", token);
-    //向个推服务器注册deviceToken
-    [GeTuiSdk registerDeviceToken:token];
+-(void)wxServices {
+    [WXApi registerApp:wxAppId];
 }
 
-/** APP已经接收到“远程”通知(推送) - 透传推送消息  */
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
-    
-    [GeTuiSdk handleRemoteNotification:userInfo];
-    // 控制台打印接收APNs信息
-    NSLog(@"\n>>>[Receive RemoteNotification]:%@\n\n", userInfo);
+///** 注册推送 */
+//-(void)pushServices {
+//    KCWeakSelf(weakSelf);
+//    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:weakSelf];
+//}
+//
+///** 远程通知注册成功委托 */
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+//    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    NSLog(@"\n>>>[DeviceToken Success]:%@\n\n", token);
+//    //向个推服务器注册deviceToken
+//    [GeTuiSdk registerDeviceToken:token];
+//}
+//
+///** APP已经接收到“远程”通知(推送) - 透传推送消息  */
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+//
+//    [GeTuiSdk handleRemoteNotification:userInfo];
+//    // 控制台打印接收APNs信息
+//    NSLog(@"\n>>>[Receive RemoteNotification]:%@\n\n", userInfo);
+//
+//}
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+}
+
 
 -(void)KeyboardManager {
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
