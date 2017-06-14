@@ -125,14 +125,18 @@
         
     }];
 }
+
 -(void)WXlogin {
-    
-    [KCShareView showWebpage:@"www.baidu.com" Title:@"金吉列留学" Description:@"一家做留学的公司" ThumbImage:nil];
+    [KCShareView showWebpageUrlString:@"www.baidu.com"
+                       Title:@"金吉列留学"
+                 Description:@"一家做留学的公司,啦啦啦啦啦啦啦啦啦啦啦啦啦啦"
+                  ThumbImage:[UIImage imageNamed:@"logo"]];
     //[SVP showWithStatus:@"微信登录"];
 }
 
 -(void)WBlogin {
-    [SVP showSuccessWithStatus:@"微博登录"];
+    [KCShareView showImageTitle:@"金吉列留学" ThumbImage:[UIImage imageNamed:@"bigImage.jpg"] imageData:UIImagePNGRepresentation([UIImage imageNamed:@"jks.jpg"])];
+    //[SVP showSuccessWithStatus:@"微博登录"];
 //    [KCNetworkTool getRequest:@"http://120.77.213.246:80/user/token" params:@{} success:^(id obj) {
 //        NSLog(@"%@",obj);
 //    }];

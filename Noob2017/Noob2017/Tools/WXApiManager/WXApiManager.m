@@ -44,22 +44,27 @@ int const kthumbImgaeWidth = 140;
 }
 
 //
-- (void)sendWeiXinLinkContentAtScene:(enum WXScene)scene {
+- (void)sendWeiXinLinkContent:(NSString *)urlString
+                        Title:(NSString *)title
+                  Description:(NSString *)description
+                   ThumbImage:(UIImage *)thumbImage
+                      AtScene:(enum WXScene)scene {
     if (![WXApi isWXAppInstalled]) {
         [SVP showErrorWithStatus:@"抱歉, 未安装微信无法分享"];
         return;
     }
     //类型
     WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = @"www.baidu.com";
+    ext.webpageUrl = urlString;
     
     //内容
     WXMediaMessage *message = [WXMediaMessage message];
-    message.title = @"金吉列留学";
-    message.description = @"永安里建外SOHO3001";
+    message.title = title;
+    message.description = description;
     //message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
     message.mediaObject = ext;
-    message.thumbData = UIImagePNGRepresentation([UIImage imageNamed:@"logo"]);
+    NSData *thumbData = [self thumbDataOriginalImg:thumbImage];
+    message.thumbData = thumbData;
     
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
     req.message = message;
@@ -69,26 +74,24 @@ int const kthumbImgaeWidth = 140;
     [WXApi sendReq:req];
 }
 
-- (void)sendWeiXinImageAtScene:(enum WXScene)scene {
+- (void)sendWeiXinImage:(NSString *)title
+                    ThumbImage:(UIImage *)thumbImage
+                     imageData:(NSData *)imageData
+                       AtScene:(enum WXScene)scene {
     if (![WXApi isWXAppInstalled]) {
         [SVP showErrorWithStatus:@"抱歉, 未安装微信无法分享"];
         return;
     }
     //类型
     WXImageObject *ext = [WXImageObject object];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"jks" ofType:@"jpg"];
-    NSData *imageData = [NSData dataWithContentsOfFile:filePath];
     ext.imageData = imageData;
     
     //内容
     WXMediaMessage *message = [WXMediaMessage message];
+    message.title = title;
     message.mediaObject = ext;
-    
-    NSString *thumbDataPath = [[NSBundle mainBundle] pathForResource:@"jks" ofType:@"jpg"];
-    NSData *thumbData = [NSData dataWithContentsOfFile:thumbDataPath];
-    UIImage *originalImg = [UIImage imageWithData:thumbData];
-    UIImage *thumbImg = [self thumbImgWithoriginalImg:originalImg];
-    message.thumbData = UIImagePNGRepresentation(thumbImg);
+    NSData *thumbData = [self thumbDataOriginalImg:thumbImage];
+    message.thumbData = thumbData;
     
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
     req.message = message;
@@ -98,9 +101,9 @@ int const kthumbImgaeWidth = 140;
     [WXApi sendReq:req];
 }
 
--(UIImage *)thumbImgWithoriginalImg:(UIImage *)originalImg {
+-(NSData *)thumbDataOriginalImg:(UIImage *)originalImg {
     UIImage *thumbImg = originalImg;
-    NSData *thumbData = UIImageJPEGRepresentation(thumbImg, 1);
+    NSData *thumbData = UIImagePNGRepresentation(thumbImg);
     if (thumbImg.size.width >kthumbImgaeWidth || thumbImg.size.height >kthumbImgaeWidth) {
         CGFloat width = kthumbImgaeWidth;
         CGFloat height = width*thumbImg.size.height/thumbImg.size.width;
@@ -108,19 +111,18 @@ int const kthumbImgaeWidth = 140;
             width -= 1;
             height = width*thumbImg.size.height/thumbImg.size.width;
         } while (height >kthumbImgaeWidth);
-        UIImage *newImg = [KCImageTool compressImage:thumbImg newWidth:width];
-        thumbData = UIImageJPEGRepresentation(newImg,1);
-        thumbImg = [UIImage imageWithData:thumbData];
-        NSLog(@"压缩后：%f__%f__%lukb",thumbImg.size.width,thumbImg.size.height,(unsigned long)thumbData.length/1024);
+        thumbImg = [KCImageTool compressImage:thumbImg newWidth:width];
+        thumbData = UIImagePNGRepresentation(thumbImg);
+        NSLog(@"压缩尺寸后：%f__%f__%lukb",thumbImg.size.width,thumbImg.size.height,(unsigned long)thumbData.length/1024);
     }
     if (thumbData.length/1024 >32) {
         do {
             thumbData = UIImageJPEGRepresentation(thumbImg,.8);
         } while (thumbData.length/1024 >32);
         thumbImg = [UIImage imageWithData:thumbData];
-        NSLog(@"压缩后：%f__%f__%lukb",thumbImg.size.width,thumbImg.size.height,(unsigned long)thumbData.length/1024);
+        NSLog(@"压缩质量后：%f__%f__%lukb",thumbImg.size.width,thumbImg.size.height,(unsigned long)thumbData.length/1024);
     }
-    return thumbImg;
+    return thumbData;
 }
 
 #pragma mark - WXApiDelegate

@@ -103,7 +103,7 @@ int const kShareSpacing = 6;
     }
 }
 
-+(void)showWebpage:(NSString *)urlString
++(void)showWebpageUrlString:(NSString *)urlString
              Title:(NSString *)title
        Description:(NSString *)description
         ThumbImage:(UIImage *)thumbImage {
@@ -125,7 +125,7 @@ int const kShareSpacing = 6;
     
 }
 
-+(void)showimage:(NSString *)title
++(void)showImageTitle:(NSString *)title
       ThumbImage:(UIImage *)thumbImage
        imageData:(NSData *)imageData {
     
