@@ -6,7 +6,8 @@
 
 #import "WXApiManager.h"
 
-static NSString* const kWXNotInstallErrorTitle = @"您还没有安装微信，不能使用微信分享功能";
+static NSString * const kWXNotInstallErrorTitle = @"您还没有安装微信，不能使用微信分享功能";
+int const kthumbImgaeWidth = 140;
 
 @interface WXApiManager ()
 
@@ -68,6 +69,59 @@ static NSString* const kWXNotInstallErrorTitle = @"您还没有安装微信，�
     [WXApi sendReq:req];
 }
 
+- (void)sendWeiXinImageAtScene:(enum WXScene)scene {
+    if (![WXApi isWXAppInstalled]) {
+        [SVP showErrorWithStatus:@"抱歉, 未安装微信无法分享"];
+        return;
+    }
+    //类型
+    WXImageObject *ext = [WXImageObject object];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"jks" ofType:@"jpg"];
+    NSData *imageData = [NSData dataWithContentsOfFile:filePath];
+    ext.imageData = imageData;
+    
+    //内容
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.mediaObject = ext;
+    
+    NSString *thumbDataPath = [[NSBundle mainBundle] pathForResource:@"jks" ofType:@"jpg"];
+    NSData *thumbData = [NSData dataWithContentsOfFile:thumbDataPath];
+    UIImage *originalImg = [UIImage imageWithData:thumbData];
+    UIImage *thumbImg = [self thumbImgWithoriginalImg:originalImg];
+    message.thumbData = UIImagePNGRepresentation(thumbImg);
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.message = message;
+    req.bText = NO;
+    //场景
+    req.scene = scene;
+    [WXApi sendReq:req];
+}
+
+-(UIImage *)thumbImgWithoriginalImg:(UIImage *)originalImg {
+    UIImage *thumbImg = originalImg;
+    NSData *thumbData = UIImageJPEGRepresentation(thumbImg, 1);
+    if (thumbImg.size.width >kthumbImgaeWidth || thumbImg.size.height >kthumbImgaeWidth) {
+        CGFloat width = kthumbImgaeWidth;
+        CGFloat height = width*thumbImg.size.height/thumbImg.size.width;
+        do {
+            width -= 1;
+            height = width*thumbImg.size.height/thumbImg.size.width;
+        } while (height >kthumbImgaeWidth);
+        UIImage *newImg = [KCImageTool compressImage:thumbImg newWidth:width];
+        thumbData = UIImageJPEGRepresentation(newImg,1);
+        thumbImg = [UIImage imageWithData:thumbData];
+        NSLog(@"压缩后：%f__%f__%lukb",thumbImg.size.width,thumbImg.size.height,(unsigned long)thumbData.length/1024);
+    }
+    if (thumbData.length/1024 >32) {
+        do {
+            thumbData = UIImageJPEGRepresentation(thumbImg,.8);
+        } while (thumbData.length/1024 >32);
+        thumbImg = [UIImage imageWithData:thumbData];
+        NSLog(@"压缩后：%f__%f__%lukb",thumbImg.size.width,thumbImg.size.height,(unsigned long)thumbData.length/1024);
+    }
+    return thumbImg;
+}
 
 #pragma mark - WXApiDelegate
 -(void)onReq:(BaseReq*)req {

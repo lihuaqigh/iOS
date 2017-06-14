@@ -24,7 +24,6 @@
     [self launchPrepare];
     [self servicesApplication:application didFinishLaunchingWithOptions:launchOptions];
     return YES;
-
 }
 
 //AppDelegate自身的代理

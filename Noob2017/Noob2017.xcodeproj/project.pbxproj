@@ -49,6 +49,9 @@
 		3E544B931EA60BA00048231E /* KCNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E544B921EA60BA00048231E /* KCNetworkTool.m */; };
 		3E544B961EA60BED0048231E /* KCUrlConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E544B951EA60BED0048231E /* KCUrlConfig.m */; };
 		3E557F841E9530FD00A6C0D9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E557F831E9530FD00A6C0D9 /* LoginViewController.m */; };
+		3E561C981EF0F3CE00D55783 /* bigImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E561C971EF0F3CE00D55783 /* bigImage.jpg */; };
+		3E561C9B1EF1080B00D55783 /* KCImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E561C9A1EF1080B00D55783 /* KCImageTool.m */; };
+		3E561C9D1EF10D3500D55783 /* jks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E561C9C1EF10D3500D55783 /* jks.jpg */; };
 		3E6F3C3E1E542BAF003E0885 /* JJLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F3C3B1E542BAF003E0885 /* JJLNavigationController.m */; };
 		3E6F3C3F1E542BAF003E0885 /* JJLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F3C3D1E542BAF003E0885 /* JJLTabBarController.m */; };
 		3E6F3C461E542F87003E0885 /* JJLProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F3C451E542F87003E0885 /* JJLProfileController.m */; };
@@ -173,6 +176,10 @@
 		3E544B951EA60BED0048231E /* KCUrlConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCUrlConfig.m; sourceTree = "<group>"; };
 		3E557F821E9530FD00A6C0D9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3E557F831E9530FD00A6C0D9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3E561C971EF0F3CE00D55783 /* bigImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bigImage.jpg; sourceTree = "<group>"; };
+		3E561C991EF1080B00D55783 /* KCImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCImageTool.h; sourceTree = "<group>"; };
+		3E561C9A1EF1080B00D55783 /* KCImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCImageTool.m; sourceTree = "<group>"; };
+		3E561C9C1EF10D3500D55783 /* jks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jks.jpg; sourceTree = "<group>"; };
 		3E6F3C3A1E542BAF003E0885 /* JJLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJLNavigationController.h; sourceTree = "<group>"; };
 		3E6F3C3B1E542BAF003E0885 /* JJLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJLNavigationController.m; sourceTree = "<group>"; };
 		3E6F3C3C1E542BAF003E0885 /* JJLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJLTabBarController.h; sourceTree = "<group>"; };
@@ -532,6 +539,8 @@
 				3E34FA531E9E09A8009B844B /* KCCommonTool.m */,
 				3E110BC21EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.h */,
 				3E110BC31EEFFC9B00EF05BD /* UIButton+ImageTitleSpacing.m */,
+				3E561C991EF1080B00D55783 /* KCImageTool.h */,
+				3E561C9A1EF1080B00D55783 /* KCImageTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -621,6 +630,8 @@
 				3EF4EDF81E94F4F800A93B7F /* main.m */,
 				3EF4F1C91EB85C3000D15792 /* Assets.xcassets */,
 				3EF4EDF61E94F4F800A93B7F /* image.png */,
+				3E561C971EF0F3CE00D55783 /* bigImage.jpg */,
+				3E561C9C1EF10D3500D55783 /* jks.jpg */,
 				3EF4EDF91E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF */,
 			);
 			path = System;
@@ -751,7 +762,9 @@
 				3E459DE91E4D9BDC00D7C9AD /* LaunchScreen.storyboard in Resources */,
 				3E510EC71E9F842900026311 /* Info.plist in Resources */,
 				3E459DE41E4D9BDC00D7C9AD /* Main.storyboard in Resources */,
+				3E561C9D1EF10D3500D55783 /* jks.jpg in Resources */,
 				3EF4F1CA1EB85C3000D15792 /* Assets.xcassets in Resources */,
+				3E561C981EF0F3CE00D55783 /* bigImage.jpg in Resources */,
 				3EF4EDFC1E94F4F800A93B7F /* image.png in Resources */,
 				3E2FD3881E95EF95006C192E /* IQKeyboardManager.bundle in Resources */,
 			);
@@ -846,6 +859,7 @@
 				3E2FD38B1E95FF7C006C192E /* KCKit.m in Sources */,
 				3E2FD3811E95EF95006C192E /* IQKeyboardReturnKeyHandler.m in Sources */,
 				3E2FD3911E96294A006C192E /* A_ForgetViewController.m in Sources */,
+				3E561C9B1EF1080B00D55783 /* KCImageTool.m in Sources */,
 				3E3D3BDD1E682DD2006667A1 /* NGShoppingCarModel.m in Sources */,
 				3E2FD37D1E95EF95006C192E /* IQUIView+Hierarchy.m in Sources */,
 				3E2FD37E1E95EF95006C192E /* IQUIViewController+Additions.m in Sources */,

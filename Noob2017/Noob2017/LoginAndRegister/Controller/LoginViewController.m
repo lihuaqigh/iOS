@@ -126,7 +126,8 @@
     }];
 }
 -(void)WXlogin {
-    [KCShareView show];
+    
+    [KCShareView showWebpage:@"www.baidu.com" Title:@"金吉列留学" Description:@"一家做留学的公司" ThumbImage:nil];
     //[SVP showWithStatus:@"微信登录"];
 }
 

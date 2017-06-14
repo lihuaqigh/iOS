@@ -13,28 +13,57 @@ int const kShareHeight = 110;
 int const kShareSpacing = 6;
 @interface KCShareView()
 @property (nonatomic, strong) UIView *shareView;
-@property (nonatomic, copy) NSString *shareType;//分享的类型
+@property (nonatomic, copy) NSString *shareType;//
+@property (nonatomic, copy) NSString *shareUrlString;//
+@property (nonatomic, copy) NSString *shareTitle;//
+@property (nonatomic, copy) NSString *shareDescription;//
+@property (nonatomic, strong) UIImage *shareThumbImage;//
+@property (nonatomic, strong) NSData *shareImageData;//
 @end
 @implementation KCShareView
--(instancetype)init {
-    if (self = [super init]) {
-        [self createUI];
-    }
-    return self;
+-(instancetype)initUrlString:(NSString *)urlString
+                       Title:(NSString *)title
+                 Description:(NSString *)description
+                  ThumbImage:(UIImage *)thumbImage
+                   imageData:(NSData *)imageData
+                   shareType:(NSString *)shareType {
+    
+                        if (self = [super init]) {
+                            _shareUrlString = urlString;
+                            _shareTitle = title;
+                            _shareDescription = description;
+                            _shareThumbImage = thumbImage;
+                            _shareImageData = imageData;
+                            _shareType = shareType;
+                            [self createUI];
+                        }
+                        return self;
 }
 
 -(void)shareBtnClick:(UIButton *)btn {
     switch (btn.tag-1000) {
         case 0:{
-            [[WXApiManager sharedManager] sendWeiXinLinkContentAtScene:0];
+            if ([_shareType isEqualToString:@"webpage"]) {
+                [[WXApiManager sharedManager] sendWeiXinLinkContent:_shareUrlString Title:_shareTitle Description:_shareDescription ThumbImage:_shareThumbImage AtScene:0];
+            }else if ([_shareType isEqualToString:@"image"]) {
+                [[WXApiManager sharedManager] sendWeiXinImage:_shareTitle ThumbImage:_shareThumbImage imageData:_shareImageData AtScene:0];
+            }
             break;
         }
         case 1:{
-            [[WXApiManager sharedManager] sendWeiXinLinkContentAtScene:1];
+            if ([_shareType isEqualToString:@"webpage"]) {
+                [[WXApiManager sharedManager] sendWeiXinLinkContent:_shareUrlString Title:_shareTitle Description:_shareDescription ThumbImage:_shareThumbImage AtScene:1];
+            }else if ([_shareType isEqualToString:@"image"]) {
+                [[WXApiManager sharedManager] sendWeiXinImage:_shareTitle ThumbImage:_shareThumbImage imageData:_shareImageData AtScene:1];
+            }
             break;
         }
         case 2:{
-            
+            if ([_shareType isEqualToString:@"webpage"]) {
+                [[WXApiManager sharedManager] sendWeiXinLinkContent:_shareUrlString Title:_shareTitle Description:_shareDescription ThumbImage:_shareThumbImage AtScene:0];
+            }else if ([_shareType isEqualToString:@"image"]) {
+                [[WXApiManager sharedManager] sendWeiXinImage:_shareTitle ThumbImage:_shareThumbImage imageData:_shareImageData AtScene:0];
+            }
             break;
         }
         default:
@@ -74,17 +103,49 @@ int const kShareSpacing = 6;
     }
 }
 
-+(void)show {
++(void)showWebpage:(NSString *)urlString
+             Title:(NSString *)title
+       Description:(NSString *)description
+        ThumbImage:(UIImage *)thumbImage {
+    
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     for (UIView *subView in window.subviews) {
         if ([subView isKindOfClass:[KCShareView class]]) {
             [subView removeFromSuperview];
         }
     }
-    KCShareView *shareView = [[KCShareView alloc] init];
+    KCShareView *shareView = [[KCShareView alloc] initUrlString:urlString
+                                                          Title:title
+                                                    Description:description
+                                                     ThumbImage:thumbImage
+                                                      imageData:nil
+                                                      shareType:@"webpage"];
     [window addSubview:shareView];
     [shareView show_animation];
+    
 }
+
++(void)showimage:(NSString *)title
+      ThumbImage:(UIImage *)thumbImage
+       imageData:(NSData *)imageData {
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    for (UIView *subView in window.subviews) {
+        if ([subView isKindOfClass:[KCShareView class]]) {
+            [subView removeFromSuperview];
+        }
+    }
+    KCShareView *shareView = [[KCShareView alloc] initUrlString:nil
+                                                          Title:title
+                                                    Description:nil
+                                                     ThumbImage:thumbImage
+                                                      imageData:imageData
+                                                      shareType:@"image"];
+    [window addSubview:shareView];
+    [shareView show_animation];
+    
+}
+
 
 -(void)show_animation {
     [_shareView setFrame:CGRectMake(kShareSpacing, HEIGHT, WIDTH-kShareSpacing*2, kShareHeight*SizeScale)];
