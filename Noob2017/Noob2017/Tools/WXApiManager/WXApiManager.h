@@ -30,15 +30,15 @@
 + (instancetype)sharedManager;
 
 - (void)sendWeiXinLinkContent:(NSString *)urlString
-                        Title:(NSString *)title
-                  Description:(NSString *)description
-                   ThumbImage:(UIImage *)thumbImage
-                      AtScene:(enum WXScene)scene;
+                        title:(NSString *)title
+                  description:(NSString *)description
+                   thumbImage:(UIImage *)thumbImage
+                      atScene:(enum WXScene)scene;
 
 
 
 - (void)sendWeiXinImage:(NSString *)title
-             ThumbImage:(UIImage *)thumbImage
+             thumbImage:(UIImage *)thumbImage
               imageData:(NSData *)imageData
-                AtScene:(enum WXScene)scene;
+                atScene:(enum WXScene)scene;
 @end

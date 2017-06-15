@@ -43,14 +43,14 @@ int const kthumbImgaeWidth = 140;
     return nil;
 }
 
-//
+//网页类型
 - (void)sendWeiXinLinkContent:(NSString *)urlString
-                        Title:(NSString *)title
-                  Description:(NSString *)description
-                   ThumbImage:(UIImage *)thumbImage
-                      AtScene:(enum WXScene)scene {
+                        title:(NSString *)title
+                  description:(NSString *)description
+                   thumbImage:(UIImage *)thumbImage
+                      atScene:(enum WXScene)scene {
     if (![WXApi isWXAppInstalled]) {
-        [SVP showErrorWithStatus:@"抱歉, 未安装微信无法分享"];
+        [SVP showErrorWithStatus:kWXNotInstallErrorTitle];
         return;
     }
     //类型
@@ -74,12 +74,14 @@ int const kthumbImgaeWidth = 140;
     [WXApi sendReq:req];
 }
 
+
+//图片类型
 - (void)sendWeiXinImage:(NSString *)title
-                    ThumbImage:(UIImage *)thumbImage
+                    thumbImage:(UIImage *)thumbImage
                      imageData:(NSData *)imageData
-                       AtScene:(enum WXScene)scene {
+                       atScene:(enum WXScene)scene {
     if (![WXApi isWXAppInstalled]) {
-        [SVP showErrorWithStatus:@"抱歉, 未安装微信无法分享"];
+        [SVP showErrorWithStatus:kWXNotInstallErrorTitle];
         return;
     }
     //类型

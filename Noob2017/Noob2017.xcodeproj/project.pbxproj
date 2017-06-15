@@ -62,6 +62,7 @@
 		3E856EA71E5ACEF700474C4F /* UIControl+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E856EA61E5ACEF700474C4F /* UIControl+Safety.m */; };
 		3E8A1E771EA897D200465101 /* SimulateIDFA.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A1E761EA897D200465101 /* SimulateIDFA.m */; };
 		3E8A1E791EA8989500465101 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8A1E781EA8989500465101 /* CoreTelephony.framework */; };
+		3EB12B751EF27E4500531DBC /* WeiboApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB12B741EF27E4500531DBC /* WeiboApiManager.m */; };
 		3EF4EDFA1E94F4F800A93B7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */; };
 		3EF4EDFE1E94F4F800A93B7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF81E94F4F800A93B7F /* main.m */; };
 		3EF4EDFF1E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF91E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF */; };
@@ -198,6 +199,8 @@
 		3E8A1E751EA897D200465101 /* SimulateIDFA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulateIDFA.h; sourceTree = "<group>"; };
 		3E8A1E761EA897D200465101 /* SimulateIDFA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulateIDFA.m; sourceTree = "<group>"; };
 		3E8A1E781EA8989500465101 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3EB12B731EF27E4500531DBC /* WeiboApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboApiManager.h; sourceTree = "<group>"; };
+		3EB12B741EF27E4500531DBC /* WeiboApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboApiManager.m; sourceTree = "<group>"; };
 		3EF4EDF31E94F4F800A93B7F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3EF4EDF81E94F4F800A93B7F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 				3E110BBD1EEFFC3E00EF05BD /* KCShareView.m */,
 				3E110BBE1EEFFC3E00EF05BD /* WXApiManager.h */,
 				3E110BBF1EEFFC3E00EF05BD /* WXApiManager.m */,
+				3EB12B731EF27E4500531DBC /* WeiboApiManager.h */,
+				3EB12B741EF27E4500531DBC /* WeiboApiManager.m */,
 			);
 			path = WXApiManager;
 			sourceTree = "<group>";
@@ -848,6 +853,7 @@
 				3E3D59191E5184A9001B405D /* UIView+Extension.m in Sources */,
 				3E6F3C491E543043003E0885 /* UIImage+Image.m in Sources */,
 				3E2FD3861E95EF95006C192E /* IQToolbar.m in Sources */,
+				3EB12B751EF27E4500531DBC /* WeiboApiManager.m in Sources */,
 				3E293D701EB9DB560027AE4F /* AppDelegate+Services.m in Sources */,
 				3E2FD37B1E95EF95006C192E /* IQUIScrollView+Additions.m in Sources */,
 				3E544B931EA60BA00048231E /* KCNetworkTool.m in Sources */,
