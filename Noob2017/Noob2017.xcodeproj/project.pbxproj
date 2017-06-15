@@ -63,7 +63,6 @@
 		3E8A1E771EA897D200465101 /* SimulateIDFA.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A1E761EA897D200465101 /* SimulateIDFA.m */; };
 		3E8A1E791EA8989500465101 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8A1E781EA8989500465101 /* CoreTelephony.framework */; };
 		3EF4EDFA1E94F4F800A93B7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */; };
-		3EF4EDFC1E94F4F800A93B7F /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF61E94F4F800A93B7F /* image.png */; };
 		3EF4EDFE1E94F4F800A93B7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF81E94F4F800A93B7F /* main.m */; };
 		3EF4EDFF1E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF91E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF */; };
 		3EF4EE061E94F5D800A93B7F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EE051E94F5D800A93B7F /* BaseViewController.m */; };
@@ -201,7 +200,6 @@
 		3E8A1E781EA8989500465101 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3EF4EDF31E94F4F800A93B7F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3EF4EDF61E94F4F800A93B7F /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		3EF4EDF81E94F4F800A93B7F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3EF4EDF91E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "方正兰亭纤黑_GBK.TTF"; sourceTree = "<group>"; };
 		3EF4EE021E94F5A200A93B7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -629,7 +627,6 @@
 				3E293D6F1EB9DB560027AE4F /* AppDelegate+Services.m */,
 				3EF4EDF81E94F4F800A93B7F /* main.m */,
 				3EF4F1C91EB85C3000D15792 /* Assets.xcassets */,
-				3EF4EDF61E94F4F800A93B7F /* image.png */,
 				3E561C971EF0F3CE00D55783 /* bigImage.jpg */,
 				3E561C9C1EF10D3500D55783 /* jks.jpg */,
 				3EF4EDF91E94F4F800A93B7F /* 方正兰亭纤黑_GBK.TTF */,
@@ -716,7 +713,7 @@
 				TargetAttributes = {
 					3E459DD51E4D9BDC00D7C9AD = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = WYR42E4EX2;
+						DevelopmentTeam = T465W56L2K;
 						ProvisioningStyle = Automatic;
 					};
 					3E459DEE1E4D9BDC00D7C9AD = {
@@ -765,7 +762,6 @@
 				3E561C9D1EF10D3500D55783 /* jks.jpg in Resources */,
 				3EF4F1CA1EB85C3000D15792 /* Assets.xcassets in Resources */,
 				3E561C981EF0F3CE00D55783 /* bigImage.jpg in Resources */,
-				3EF4EDFC1E94F4F800A93B7F /* image.png in Resources */,
 				3E2FD3881E95EF95006C192E /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1041,7 +1037,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WYR42E4EX2;
+				DEVELOPMENT_TEAM = T465W56L2K;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;
@@ -1084,7 +1080,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WYR42E4EX2;
+				DEVELOPMENT_TEAM = T465W56L2K;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;
