@@ -50,7 +50,7 @@ int const kthumbImgaeWidth = 140;
                    ThumbImage:(UIImage *)thumbImage
                       AtScene:(enum WXScene)scene {
     if (![WXApi isWXAppInstalled]) {
-        [SVP showErrorWithStatus:@"抱歉, 未安装微信无法分享"];
+        [SVP showErrorWithStatus:kWXNotInstallErrorTitle];
         return;
     }
     //类型
@@ -79,7 +79,7 @@ int const kthumbImgaeWidth = 140;
                      imageData:(NSData *)imageData
                        AtScene:(enum WXScene)scene {
     if (![WXApi isWXAppInstalled]) {
-        [SVP showErrorWithStatus:@"抱歉, 未安装微信无法分享"];
+        [SVP showErrorWithStatus:kWXNotInstallErrorTitle];
         return;
     }
     //类型

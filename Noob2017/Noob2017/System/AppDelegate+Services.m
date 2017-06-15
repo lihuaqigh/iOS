@@ -7,25 +7,27 @@
 //
 
 #import "AppDelegate+Services.h"
-#import "WXApi.h"
-#import "WXApiManager.h"
 //测试的
 static NSString* const kGtAppId = @"l6uQ8fSNLC8AMpz7lrgbC3";
 static NSString* const kGtAppKey = @"OTUWIpaM9w6zHRxkQxwGL9";
 static NSString* const kGtAppSecret = @"NLpL2HS0ru5HmdFN2NSqB7";
-static NSString* const wxAppId = @"wxd73071baf25ec8df";
+static NSString* const KWxAppId = @"wxd73071baf25ec8df";
+static NSString* const KWeiboAppId = @"698424430";
 
 @implementation AppDelegate (Services) 
 - (void)servicesApplication:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self KeyboardManager];
+    
     //[self pushServices];
-    [self wxServices];
+    
+    [WXApi registerApp:KWxAppId];
+    
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:KWeiboAppId];
+    
 }
 
--(void)wxServices {
-    [WXApi registerApp:wxAppId];
-}
 
 ///** 注册推送 */
 //-(void)pushServices {
@@ -52,11 +54,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //}
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]]||[WeiboSDK handleOpenURL:url delegate:[WeiboApiManager sharedManager]];;
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]]||[WeiboSDK handleOpenURL:url delegate:[WeiboApiManager sharedManager]];;
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "KCShareView.h"
 #import "WXApiManager.h"
+#import "WeiboApiManager.h"
 
 int const kShareHeight = 110;
 int const kShareSpacing = 6;
@@ -59,11 +60,7 @@ int const kShareSpacing = 6;
             break;
         }
         case 2:{
-            if ([_shareType isEqualToString:@"webpage"]) {
-                [[WXApiManager sharedManager] sendWeiXinLinkContent:_shareUrlString Title:_shareTitle Description:_shareDescription ThumbImage:_shareThumbImage AtScene:0];
-            }else if ([_shareType isEqualToString:@"image"]) {
-                [[WXApiManager sharedManager] sendWeiXinImage:_shareTitle ThumbImage:_shareThumbImage imageData:_shareImageData AtScene:0];
-            }
+            [[WeiboApiManager sharedManager] sendWeiboLinkContent:_shareUrlString Title:_shareTitle];
             break;
         }
         default:

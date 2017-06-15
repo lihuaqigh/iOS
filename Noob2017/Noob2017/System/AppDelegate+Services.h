@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "GeTuiSdk.h"
 #import <UserNotifications/UserNotifications.h>
+#import "GeTuiSdk.h"
+#import "WXApi.h"
+#import "WXApiManager.h"
+#import "WeiboSDK.h"
+#import "WeiboApiManager.h"
 
 @interface AppDelegate (Services) <GeTuiSdkDelegate>
 - (void)servicesApplication:(UIApplication *)application
