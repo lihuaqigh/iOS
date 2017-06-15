@@ -713,7 +713,7 @@
 				TargetAttributes = {
 					3E459DD51E4D9BDC00D7C9AD = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = T465W56L2K;
+						DevelopmentTeam = WYR42E4EX2;
 						ProvisioningStyle = Automatic;
 					};
 					3E459DEE1E4D9BDC00D7C9AD = {
@@ -1037,7 +1037,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = T465W56L2K;
+				DEVELOPMENT_TEAM = WYR42E4EX2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;
@@ -1080,7 +1080,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = T465W56L2K;
+				DEVELOPMENT_TEAM = WYR42E4EX2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;
