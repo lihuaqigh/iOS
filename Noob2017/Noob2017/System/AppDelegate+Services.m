@@ -23,7 +23,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [WXApi registerApp:KWxAppId];
     
-    [WeiboSDK enableDebugMode:YES];
+    //[WeiboSDK enableDebugMode:YES];//调试模式
     [WeiboSDK registerApp:KWeiboAppId];
     
 }
