@@ -59,7 +59,7 @@
     userBg.layer.cornerRadius = 5.0;
     [self.view addSubview:userBg];
     
-    UIImageView *userIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"user"];
+    UIImageView *userIv = [KCKit createImgVWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) imageName:@"user"];
     [userBg addSubview:userIv];
     
     self.userTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, CGRectGetWidth(userBg.frame)-50-10, 44*SizeScale)];
@@ -78,7 +78,7 @@
     passBg.layer.cornerRadius = 5.0;
     [self.view addSubview:passBg];
     
-    UIImageView *passIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"lock"];
+    UIImageView *passIv = [KCKit createImgVWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) imageName:@"lock"];
     [passBg addSubview:passIv];
     
     self.verifyTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, WIDTH-50*SizeScale-50-10, 44*SizeScale)];

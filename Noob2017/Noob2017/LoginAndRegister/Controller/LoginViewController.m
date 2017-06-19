@@ -32,7 +32,7 @@
 
 -(void)createUI {
     CGFloat iconIv_W = 130*SizeScale;
-    UIImageView *iconIv = [KCKit createIvWithFrame:CGRectMake((WIDTH-iconIv_W)*.5, 90, iconIv_W, iconIv_W) ImageName:@"logo"];
+    UIImageView *iconIv = [KCKit createImgVWithFrame:CGRectMake((WIDTH-iconIv_W)*.5, 90, iconIv_W, iconIv_W) imageName:@"logo"];
     [self.view addSubview:iconIv];
     
     CGFloat userBg_X = 25*SizeScale;
@@ -41,7 +41,7 @@
     userBg.layer.cornerRadius = 5.0;
     [self.view addSubview:userBg];
     
-    UIImageView *userIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"user"];
+    UIImageView *userIv = [KCKit createImgVWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) imageName:@"user"];
     [userBg addSubview:userIv];
     
     self.userTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];
@@ -56,7 +56,7 @@
     passBg.layer.cornerRadius = 5.0;
     [self.view addSubview:passBg];
     
-    UIImageView *passIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"lock"];
+    UIImageView *passIv = [KCKit createImgVWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) imageName:@"lock"];
     [passBg addSubview:passIv];
     
     self.passTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];
@@ -79,7 +79,7 @@
     [self.view addSubview:forgetBtn];
     
     //其他登录方式分割线
-    UIImageView *otherImage = [KCKit createIvWithFrame:CGRectMake((WIDTH-287*SizeScale)/2, HEIGHT-114*SizeScale, 287*SizeScale, 14*SizeScale) ImageName:@"otherlogin"];
+    UIImageView *otherImage = [KCKit createImgVWithFrame:CGRectMake((WIDTH-287*SizeScale)/2, HEIGHT-114*SizeScale, 287*SizeScale, 14*SizeScale) imageName:@"otherlogin"];
     [self.view addSubview:otherImage];
     
     //使用微信登陆

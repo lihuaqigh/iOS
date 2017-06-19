@@ -33,7 +33,7 @@
     passBg.layer.cornerRadius = 5.0;
     [self.view addSubview:passBg];
     
-    UIImageView *passIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"lock"];
+    UIImageView *passIv = [KCKit createImgVWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) imageName:@"lock"];
     [passBg addSubview:passIv];
     
     self.passTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(passIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];
@@ -49,7 +49,7 @@
     passAgainBg.layer.cornerRadius = 5.0;
     [self.view addSubview:passAgainBg];
     
-    UIImageView *passAgainIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"lock"];
+    UIImageView *passAgainIv = [KCKit createImgVWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) imageName:@"lock"];
     [passAgainBg addSubview:passAgainIv];
     
     self.passAgainTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(passAgainIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];

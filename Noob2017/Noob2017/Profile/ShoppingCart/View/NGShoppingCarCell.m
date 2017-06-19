@@ -20,8 +20,7 @@
 @property (nonatomic, strong) UILabel *goodCountLb;
 @end
 @implementation NGShoppingCarCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self createUI];
     }
@@ -29,7 +28,7 @@
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {
-    static NSString *ID = @"shoppingcell";
+    static NSString *ID = @"shoppingCarCellId";
     NGShoppingCarCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
         cell = [[NGShoppingCarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];

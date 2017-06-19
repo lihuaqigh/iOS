@@ -63,6 +63,8 @@
 		3E6F3C4C1E543E1F003E0885 /* JJLProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F3C4B1E543E1F003E0885 /* JJLProfileCell.m */; };
 		3E8A1E771EA897D200465101 /* SimulateIDFA.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A1E761EA897D200465101 /* SimulateIDFA.m */; };
 		3E8A1E791EA8989500465101 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8A1E781EA8989500465101 /* CoreTelephony.framework */; };
+		3E95B1341EF833E100C29A8A /* JJLProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E95B1331EF833E100C29A8A /* JJLProfileHeaderView.m */; };
+		3E95B1371EF83CA800C29A8A /* UIImageView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E95B1361EF83CA800C29A8A /* UIImageView+CornerRadius.m */; };
 		3EB12B751EF27E4500531DBC /* WeiboApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB12B741EF27E4500531DBC /* WeiboApiManager.m */; };
 		3EF4EDFA1E94F4F800A93B7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */; };
 		3EF4EDFE1E94F4F800A93B7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4EDF81E94F4F800A93B7F /* main.m */; };
@@ -201,6 +203,10 @@
 		3E8A1E751EA897D200465101 /* SimulateIDFA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulateIDFA.h; sourceTree = "<group>"; };
 		3E8A1E761EA897D200465101 /* SimulateIDFA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulateIDFA.m; sourceTree = "<group>"; };
 		3E8A1E781EA8989500465101 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3E95B1321EF833E100C29A8A /* JJLProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJLProfileHeaderView.h; sourceTree = "<group>"; };
+		3E95B1331EF833E100C29A8A /* JJLProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJLProfileHeaderView.m; sourceTree = "<group>"; };
+		3E95B1351EF83CA800C29A8A /* UIImageView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CornerRadius.h"; sourceTree = "<group>"; };
+		3E95B1361EF83CA800C29A8A /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
 		3EB12B731EF27E4500531DBC /* WeiboApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboApiManager.h; sourceTree = "<group>"; };
 		3EB12B741EF27E4500531DBC /* WeiboApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboApiManager.m; sourceTree = "<group>"; };
 		3EF4EDF31E94F4F800A93B7F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -564,6 +570,8 @@
 		3E5D52BD1EF3ACCE00521772 /* KCCommonTools */ = {
 			isa = PBXGroup;
 			children = (
+				3E95B1351EF83CA800C29A8A /* UIImageView+CornerRadius.h */,
+				3E95B1361EF83CA800C29A8A /* UIImageView+CornerRadius.m */,
 				3E5D52BE1EF3ACCE00521772 /* KCCommonTool.h */,
 				3E5D52BF1EF3ACCE00521772 /* KCCommonTool.m */,
 				3E5D52C01EF3ACCE00521772 /* KCImageTool.h */,
@@ -629,6 +637,8 @@
 			children = (
 				3E6F3C4A1E543E1F003E0885 /* JJLProfileCell.h */,
 				3E6F3C4B1E543E1F003E0885 /* JJLProfileCell.m */,
+				3E95B1321EF833E100C29A8A /* JJLProfileHeaderView.h */,
+				3E95B1331EF833E100C29A8A /* JJLProfileHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -738,7 +748,7 @@
 				TargetAttributes = {
 					3E459DD51E4D9BDC00D7C9AD = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = WYR42E4EX2;
+						DevelopmentTeam = T465W56L2K;
 						ProvisioningStyle = Automatic;
 					};
 					3E459DEE1E4D9BDC00D7C9AD = {
@@ -886,6 +896,7 @@
 				3E2FD37E1E95EF95006C192E /* IQUIViewController+Additions.m in Sources */,
 				3E302A1A1EA9D17D008F793E /* KCNetWorkSpecial.m in Sources */,
 				3E3D3BDA1E6827B3006667A1 /* NGShoppingCarCell.m in Sources */,
+				3E95B1341EF833E100C29A8A /* JJLProfileHeaderView.m in Sources */,
 				3E2FD37A1E95EF95006C192E /* IQNSArray+Sort.m in Sources */,
 				3E2FD38E1E962934006C192E /* A_RegistViewController.m in Sources */,
 				3E110BC11EEFFC3E00EF05BD /* WXApiManager.m in Sources */,
@@ -900,6 +911,7 @@
 				3E3D3BD71E680A67006667A1 /* NGShoppingCartViewController.m in Sources */,
 				3E2FD3851E95EF95006C192E /* IQTitleBarButtonItem.m in Sources */,
 				3E5D52D61EF3ACCE00521772 /* KCImageTool.m in Sources */,
+				3E95B1371EF83CA800C29A8A /* UIImageView+CornerRadius.m in Sources */,
 				3E110BC01EEFFC3E00EF05BD /* KCShareView.m in Sources */,
 				3E5D52DE1EF3ACCE00521772 /* UILabel+Frame.m in Sources */,
 				3E510EC81E9F842900026311 /* MSWeakTimer.m in Sources */,
@@ -1063,7 +1075,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WYR42E4EX2;
+				DEVELOPMENT_TEAM = T465W56L2K;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;
@@ -1106,7 +1118,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WYR42E4EX2;
+				DEVELOPMENT_TEAM = T465W56L2K;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;

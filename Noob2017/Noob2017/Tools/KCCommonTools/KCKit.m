@@ -10,10 +10,11 @@
 
 @implementation KCKit
 //创建Label
-+(UILabel*)createLbWithFrame:(CGRect)frame Text:(NSString*)text font:(CGFloat)font {
-    UILabel*label=[[UILabel alloc]initWithFrame:frame];
-    label.text=text;
-    label.font=[UIFont systemFontOfSize:font];
++(UILabel*)createLbWithFrame:(CGRect)frame text:(NSString*)text textColor:(NSString*)textColor font:(CGFloat)font {
+    UILabel*label = [[UILabel alloc]initWithFrame:frame];
+    label.text = text;
+    label.textColor = [UIColor colorFromHexString:textColor];
+    label.font = [UIFont fontWithName:K_CHANGE_TEXT_FONT size:font*SizeScale];
     return label;
 }
 //创建Button
@@ -53,7 +54,7 @@
     return button;
 }
 //创建ImageView
-+(UIImageView*)createIvWithFrame:(CGRect)frame ImageName:(NSString*)imageName {
++(UIImageView*)createImgVWithFrame:(CGRect)frame imageName:(NSString*)imageName {
     UIImageView*imageView=[[UIImageView alloc]initWithFrame:frame];
     imageView.image=[UIImage imageNamed:imageName];
     imageView.userInteractionEnabled=YES;

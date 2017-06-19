@@ -57,6 +57,7 @@
 #import "KCShareView.h"
 #import "UIButton+ImageTitleSpacing.h"
 #import "KCImageTool.h"
+#import "UIImageView+CornerRadius.h"
 
 //第三方库
 #import "YYModel.h"

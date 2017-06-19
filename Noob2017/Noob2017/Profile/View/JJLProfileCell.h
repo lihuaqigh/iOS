@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface JJLProfileCell : UITableViewCell
-
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+-(void)refreshTitle:(NSString *)title;
 @end

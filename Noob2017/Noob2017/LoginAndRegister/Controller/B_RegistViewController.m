@@ -28,7 +28,7 @@
 
 -(void)createUI {
     CGFloat iconIv_W = 130*SizeScale;
-    UIImageView *iconIv = [KCKit createIvWithFrame:CGRectMake((WIDTH-iconIv_W)*.5, 90, iconIv_W, iconIv_W) ImageName:@"logo"];
+    UIImageView *iconIv = [KCKit createImgVWithFrame:CGRectMake((WIDTH-iconIv_W)*.5, 90, iconIv_W, iconIv_W) imageName:@"logo"];
     [self.view addSubview:iconIv];
     
     //密码
@@ -38,7 +38,7 @@
     userBg.layer.cornerRadius = 5.0;
     [self.view addSubview:userBg];
     
-    UIImageView *userIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"lock"];
+    UIImageView *userIv = [KCKit createImgVWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) imageName:@"lock"];
     [userBg addSubview:userIv];
     
     self.userTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];
@@ -54,7 +54,7 @@
     passBg.layer.cornerRadius = 5.0;
     [self.view addSubview:passBg];
     
-    UIImageView *passIv = [KCKit createIvWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) ImageName:@"lock"];
+    UIImageView *passIv = [KCKit createImgVWithFrame:CGRectMake(15, (44*SizeScale-70/3)*.5, 60/3, 70/3) imageName:@"lock"];
     [passBg addSubview:passIv];
     
     self.passTf = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userIv.frame)+15, 0, WIDTH-50*SizeScale-50, 44*SizeScale)];
