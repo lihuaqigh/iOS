@@ -7,12 +7,11 @@
 //
 
 #import "JJLProfileController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "NGShoppingCartViewController.h"
 //#import "LoginViewController.h"
 
-@interface JJLProfileController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-
-@property (nonatomic, strong) UIImagePickerController *picker;
+@interface JJLProfileController ()<UITableViewDelegate,UITableViewDataSource,TZImagePickerControllerDelegate>
 
 @property (nonatomic,strong) NSArray *listArray;
 
@@ -140,12 +139,11 @@
     [alertController addAction: [UIAlertAction actionWithTitle: @"拍照" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            _picker = [[UIImagePickerController alloc]init];
-            UIImagePickerControllerSourceType sourcheType = UIImagePickerControllerSourceTypeCamera;
-            _picker.sourceType = sourcheType;
-            _picker.delegate = self;
-            _picker.allowsEditing = YES;
-            [self presentViewController:_picker animated:YES completion:nil];
+            TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
+            [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+                
+            }];
+            [self presentViewController:imagePickerVc animated:YES completion:nil];
         }else {
             NSLog(@"不支持相机");
         }
@@ -155,13 +153,13 @@
     [alertController addAction: [UIAlertAction actionWithTitle: @"从手机相册选择" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
-            _picker = [[UIImagePickerController alloc]init];
-            UIImagePickerControllerSourceType sourcheType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-            _picker.sourceType = sourcheType;
-            //_picker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString*)kUTTypeImage,nil];
-            _picker.delegate = self;
-            _picker.allowsEditing = YES;
-            [self presentViewController:_picker animated:YES completion:nil];
+            TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
+            imagePickerVc.sortAscendingByModificationDate = NO;
+            imagePickerVc.allowCrop = YES;
+            [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+                
+            }];
+            [self presentViewController:imagePickerVc animated:YES completion:nil];
         }else {
             NSLog(@"不支持相册");
         }
@@ -169,41 +167,11 @@
 
     }]];
     
-    [alertController addAction: [UIAlertAction actionWithTitle: @"从图片库中选择" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-            _picker = [[UIImagePickerController alloc]init];
-            //_picker.view.backgroundColor = [UIColor whiteColor];
-            UIImagePickerControllerSourceType sourcheType = UIImagePickerControllerSourceTypePhotoLibrary;
-            _picker.sourceType = sourcheType;
-            _picker.delegate = self;
-            _picker.allowsEditing = NO;
-            [self presentViewController:_picker animated:YES completion:nil];
-        }else {
-            NSLog(@"不支持图片库");
-        }
-    }]];
-    
     [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
     
     [self presentViewController:alertController animated:YES completion: nil];
 
 }
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary*)info {
-    NSLog(@">>%@",info);
-    UIImage * image = [UIImage new];
-    if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
-        image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    }else {
-        image = [info valueForKey:UIImagePickerControllerEditedImage];
-    }
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    _imageview.image = image;
-
-}
-
-
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];

@@ -17,6 +17,7 @@ PODS:
   - GTSDK (1.6.2.0)
   - MBProgressHUD (1.0.0)
   - SVProgressHUD (2.1.2)
+  - TZImagePickerController (1.8.1)
   - WechatOpenSDK (1.7.7)
   - WeiboSDK (3.1.3)
   - YYModel (1.0.4)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - GTSDK (~> 1.6.2.0)
   - MBProgressHUD
   - SVProgressHUD
+  - TZImagePickerController (~> 1.8.1)
   - WechatOpenSDK (~> 1.7.7)
   - WeiboSDK (~> 3.1.3)
   - YYModel
@@ -35,10 +37,11 @@ SPEC CHECKSUMS:
   GTSDK: 6089897a86579d4a7d66eb4245f2c8639c2e5e8f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  TZImagePickerController: 086034156913375cb19c8e4103562f15322c3b36
   WechatOpenSDK: cbd332148eb792d444ed4eec94f421d98f2046ee
   WeiboSDK: acb067053668102cf07d01aa7604350162c2e466
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: b30f0ff51093a46422267f6cb9cdd51d20259591
+PODFILE CHECKSUM: 26fc692e9880fb13f92d922a5dd259e00de81f94
 
 COCOAPODS: 1.2.1
