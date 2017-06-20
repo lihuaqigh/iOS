@@ -64,7 +64,7 @@
 #import "IQKeyboardManager.h"
 #import "MSWeakTimer.h"
 #import "TZImagePickerController.h"
-
+#import <YYWebImage/YYWebImage.h>
 
 
 

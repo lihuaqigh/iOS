@@ -38,6 +38,12 @@ UIKIT_EXTERN NSString * const KCTestUrl;
 //正式服务器
 UIKIT_EXTERN NSString * const KCReleseUrl;
 
+
+//单图上传
+UIKIT_EXTERN NSString * const kUploadserverOne;
+//多图上传
+UIKIT_EXTERN NSString * const kUploadserverMore;
+
 UIKIT_EXTERN NSString * const KApploginSuccess;
 UIKIT_EXTERN NSString * const KApplogin;
 

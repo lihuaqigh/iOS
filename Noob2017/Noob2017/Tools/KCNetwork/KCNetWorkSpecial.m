@@ -41,6 +41,46 @@ static const NSTimeInterval kTimeOutInterval = 8.0;// 请求超时的时间
     }];
 }
 
+//单图上传
++ (void)uploadImage:(UIImage *)image success:(requestSuccessBlock)successHandler error:(requestFailureBlock)failureHandler{
+    if (![self checkNetworkStatus]) {
+        successHandler(nil);
+        return;
+    }
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:kUploadserverOne parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        NSData *imgData = UIImageJPEGRepresentation(image, 0.8f);
+        [formData appendPartWithFileData:imgData name:@"file" fileName:@"xxx.png" mimeType:@"image/png"];
+    } error:nil];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    AFHTTPResponseSerializer *responseSerializer = [AFHTTPResponseSerializer serializer];
+    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
+    manager.responseSerializer = responseSerializer;
+
+    
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:nil
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      if (error) {
+                          NSLog(@"图片单传Error: %@", error);
+                      } else {
+                          NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                          NSDictionary *dic = [KCCommonTool common_jsonTodic:responseStr];
+                          successHandler(dic);
+                      }
+                  }];
+    
+    [uploadTask resume];
+    
+    
+    
+    
+    
+}
+
 + (AFHTTPSessionManager *)getRequstManager {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];

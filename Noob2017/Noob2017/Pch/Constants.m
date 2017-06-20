@@ -23,5 +23,9 @@ NSString * const Kffffff = @"#ffffff";
 NSString * const KCTestUrl = @"http://123.207.220.183";
 NSString * const KCReleseUrl = @"http://123.207.220.183";
 
+NSString * const kUploadserverOne = @"https://testphotos.nggirl.com.cn/uploadserver/app/image/uploadsCompress/3.0.0";
+NSString * const kUploadserverMore = @"https://testphotos.nggirl.com.cn/uploadserver/app/image/uploads/multi/4.0.0";
+
+
 NSString * const KApploginSuccess = @"ApploginSuccess";
 NSString * const KApplogin = @"Applogin";

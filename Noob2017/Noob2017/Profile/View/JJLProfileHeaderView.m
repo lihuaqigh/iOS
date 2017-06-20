@@ -7,7 +7,7 @@
 //
 
 #import "JJLProfileHeaderView.h"
-@interface JJLProfileHeaderView()
+@interface JJLProfileHeaderView() <TZImagePickerControllerDelegate>
 @property (nonatomic,weak) UIViewController *controller;/**导航控制器*/
 @property (nonatomic,strong) UIImageView *iconImgV;/**头像*/
 @property (nonatomic,strong) UILabel *nicknameLb;/**昵称*/
@@ -38,7 +38,6 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(iconClick)];
     [_iconImgV addGestureRecognizer:tap];
     
-    
     _nicknameLb = [KCKit createLbWithFrame:CGRectMake(CGRectGetMaxX(_iconImgV.frame)+10, CGRectGetMinY(_iconImgV.frame)+5, WIDTH-50-icon_W, 25) text:@"哼哼哼哼" textColor:k4c4c4c font:15];
     [self addSubview:_nicknameLb];
     
@@ -53,6 +52,18 @@
 }
 
 -(void)iconClick {
-    
+    TZImagePickerController *picker  = [[TZImagePickerController alloc]initWithMaxImagesCount:1 delegate:self];
+    picker.allowPickingVideo = NO;
+    picker.allowCrop = YES;
+    [picker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos,NSArray *assets,BOOL isSelectOriginalPhoto){
+        UIImage *image = [photos lastObject];
+        [KCNetWorkSpecial uploadImage:image success:^(id obj) {
+            if ([obj[@"code"] integerValue]==0) {
+                [_iconImgV yy_setImageWithURL:[NSURL URLWithString:obj[@"data"][@"url"]] placeholder:[UIImage imageNamed:@"jks.jpg"]];
+            }
+        } error:^(NSError *error) {
+        }];
+    }];
+    [_controller presentViewController:picker animated:YES completion:nil];
 }
 @end
