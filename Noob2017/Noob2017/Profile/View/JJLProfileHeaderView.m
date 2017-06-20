@@ -59,7 +59,7 @@
         UIImage *image = [photos lastObject];
         [KCNetWorkSpecial uploadImage:image success:^(id obj) {
             if ([obj[@"code"] integerValue]==0) {
-                [_iconImgV yy_setImageWithURL:[NSURL URLWithString:obj[@"data"][@"url"]] placeholder:[UIImage imageNamed:@"jks.jpg"]];
+                [_iconImgV yy_setImageWithURL:[NSURL URLWithString:obj[@"data"][@"url"]] placeholder:nil];
             }
         } error:^(NSError *error) {
         }];

@@ -208,6 +208,7 @@
 		3E95B1361EF83CA800C29A8A /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
 		3EB12B731EF27E4500531DBC /* WeiboApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboApiManager.h; sourceTree = "<group>"; };
 		3EB12B741EF27E4500531DBC /* WeiboApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboApiManager.m; sourceTree = "<group>"; };
+		3EF111F01EF96A47002F593A /* Noob2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noob2017.entitlements; sourceTree = "<group>"; };
 		3EF4EDF31E94F4F800A93B7F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3EF4EDF41E94F4F800A93B7F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3EF4EDF81E94F4F800A93B7F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -473,6 +474,7 @@
 		3E459DD81E4D9BDC00D7C9AD /* Noob2017 */ = {
 			isa = PBXGroup;
 			children = (
+				3EF111F01EF96A47002F593A /* Noob2017.entitlements */,
 				3E6F3C401E542F64003E0885 /* Profile */,
 				3E3D59261E5189FB001B405D /* Main */,
 				3E3D591E1E5186D2001B405D /* LoginAndRegister */,
@@ -746,8 +748,16 @@
 				TargetAttributes = {
 					3E459DD51E4D9BDC00D7C9AD = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = WYR42E4EX2;
+						DevelopmentTeam = T465W56L2K;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					3E459DEE1E4D9BDC00D7C9AD = {
 						CreatedOnToolsVersion = 8.1;
@@ -1072,8 +1082,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Noob2017/Noob2017.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WYR42E4EX2;
+				DEVELOPMENT_TEAM = T465W56L2K;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;
@@ -1115,8 +1126,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Noob2017/Noob2017.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WYR42E4EX2;
+				DEVELOPMENT_TEAM = T465W56L2K;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Noob2017/Pch/PrefixHeader.pch";
 				INFOPLIST_FILE = Noob2017/Info.plist;
